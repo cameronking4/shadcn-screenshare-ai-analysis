@@ -1,4 +1,4 @@
-# Tab Activity Analyzer
+# AI Screenshare Tab Component
 
 A Next.js application that captures and analyzes activity in browser tabs, windows, or entire screens using OpenAI's GPT-4o mini model.
 
