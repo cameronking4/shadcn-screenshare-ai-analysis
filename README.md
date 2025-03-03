@@ -2,6 +2,8 @@
 
 A Next.js application that captures and analyzes activity in browser tabs, windows, or entire screens using OpenAI's GPT-4o mini model.
 
+[![YouTube Video vPWOnqzGBnE](https://utfs.io/f/nGnSqDveMsqxsX10H2Vzcn2ZISXo7uLb4sxJiMEfrV5gDThd)](https://www.youtube.com/watch?v=vPWOnqzGBnE)
+
 ## Overview
 
 Tab Activity Analyzer allows users to:
