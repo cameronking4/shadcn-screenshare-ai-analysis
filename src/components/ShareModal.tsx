@@ -25,6 +25,7 @@ export default function ShareModal({
   onFrameCapture?: (count: number) => void;
 }) {
   const [selectedOption, setSelectedOption] = useState<ShareOption>("tab");
+  console.log(selectedOption);
   
   // Use the custom hook for screen capture
   const {
