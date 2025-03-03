@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tab Activity Analyzer
+
+A Next.js application that captures and analyzes activity in browser tabs, windows, or entire screens using OpenAI's GPT-4o mini model.
+
+## Overview
+
+Tab Activity Analyzer allows users to:
+
+1. Select a capture source (browser tab, application window, or entire screen)
+2. View the captured video stream in real-time
+3. Receive an AI-generated summary of the activity that occurred during the capture session
+
+The application uses the Screen Capture API to record frames from the selected source, processes them with OpenAI's vision capabilities, and provides a comprehensive analysis of the content.
+
+## Features
+
+- **Multiple Capture Sources**: Capture from browser tabs, application windows, or your entire screen
+- **Real-time Preview**: Watch the captured content in a live preview window
+- **Adaptive Frame Capture**: Intelligently adjusts capture rate based on content changes
+- **Batch Processing**: Efficiently processes frames in batches to reduce API calls
+- **Comprehensive Analysis**: Provides detailed summaries of captured content using OpenAI
+
+## Technical Implementation
+
+### Core Technologies
+
+- **Next.js**: React framework for the frontend and API routes
+- **Screen Capture API**: Browser API for capturing screen content
+- **OpenAI API**: GPT-4o mini for analyzing visual content
+- **TypeScript**: Type-safe code throughout the application
+
+### Key Components
+
+- **Custom Hook**: `useScreenCapture` manages the screen capture logic
+- **API Routes**: Process and analyze captured frames
+- **UI Components**: Provide an intuitive interface for capturing and viewing content
+
+### Performance Optimizations
+
+- **Adaptive Capture Rate**: Captures more frames during activity, fewer during idle periods
+- **Frame Buffering**: Collects frames in a buffer before sending to the API
+- **Change Detection**: Only processes frames that show significant changes
+- **Batch Processing**: Analyzes multiple frames in a single API call
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18.x or later
+- An OpenAI API key with access to GPT-4o mini
+
+### Environment Setup
+
+Create a `.env.local` file in the root directory with:
+
+```
+OPENAI_API_KEY=your_openai_api_key
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Install dependencies
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Run the development server
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Click on one of the capture options (Tab, Window, Screen) or the "Start Capturing" button
+2. Select the content you want to capture from the browser dialog
+3. Watch the live preview as the content is captured
+4. When finished, click "Stop Sharing" or close the browser's sharing dialog
+5. Wait for the AI to analyze the captured frames
+6. View the comprehensive summary of the captured activity
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## How It Works
 
-## Deploy on Vercel
+1. **Capture**: The application uses the browser's Screen Capture API to record frames from the selected source
+2. **Processing**: Frames are captured at an adaptive rate, buffered, and sent in batches to the OpenAI API
+3. **Analysis**: Each frame is analyzed by OpenAI's GPT-4o mini model to identify content and activity
+4. **Summary**: The individual frame analyses are combined into a comprehensive summary of the activity
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the LICENSE file for details.

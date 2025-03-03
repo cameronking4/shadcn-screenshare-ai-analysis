@@ -28,11 +28,11 @@ export async function POST(req: NextRequest) {
       messages: [
         {
           role: 'system',
-          content: 'You are an AI assistant that summarizes multiple analyses of screen recordings. Provide a comprehensive summary that captures the key information from all the individual frame analyses. Focus on the main content, activities, and changes observed across the frames.',
+          content: 'You are an AI assistant that summarizes multiple analyses of screen recordings. Provide a comprehensive summary that captures the key information from all the individual frame analyses. Focus on the main content, activities, and changes observed across the frames. You summarize will serve as detailed analysis of what the user did or observed in the session.',
         },
         {
           role: 'user',
-          content: `I have ${analyses.length} analyses of frames from a screen recording. Please provide a comprehensive summary:\n\n${analyses.join('\n\n')}`,
+          content: `Here are the ${analyses.length} analyses of frames from a screen recording. Please provide a comprehensive summary of activities and changes observed across the frames:\n\n${analyses.join('\n\n')}`,
         },
       ],
       max_tokens: 1000,
